@@ -1,0 +1,7 @@
+write_poem:
+  description: >
+    {topic}의 멋짐에 대한 시를 작성하세요.
+    시가 매력적이면서도 지정된 문장 수({sentence_count}개)를 정확히 지켜야 합니다.
+  expected_output: >
+    {topic}에 대한 아름답게 작성된 시로, 정확히 {sentence_count}개의 문장을 포함해야 합니다.
+  agent: poem_writer

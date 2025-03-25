@@ -1,0 +1,24 @@
+research_task:
+  description: >
+    {topic}에 대해 철저히 조사하세요.
+    현재 연도가 {current_year}인 점을 고려해 흥미롭고 관련성 있는 최신 정보를 찾아보세요.
+  expected_output: >
+    {topic}에 대한 가장 중요한 정보 5가지를 한 줄씩 bullet point 형태로 정리한 목록
+  agent: researcher
+
+reporting_task:
+  description: >
+    {topic}에 대한 조사 결과를 분석하고 종합적인 보고서를 작성하세요.
+    보고서에는 다음 내용이 포함되어야 합니다:
+    1. 기본 정보
+    2. 최신 정보
+    3. 추가 정보
+    4. 글자 수
+  expected_output: >
+    {topic}에 대한 조사에 대한 완성도 높은 전문 보고서.
+    기본 정보, 최신 정보, 추가 정보가 잘 구성되어 있는 형태로 작성되어야 합니다.
+    글자 수는 정확히 세야 합니다.
+  agent: reporting_analyst
+  context:
+    - research_task
+  output_file: report.md
