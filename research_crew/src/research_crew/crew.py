@@ -34,6 +34,14 @@ class ResearchCrew():
             # verbose=True,
             tools=[count_length]
         )
+    
+    def manager(self) -> Agent:
+        return Agent(
+            role="프로젝트 매니저",
+            goal="crew에 대한 효과적인 관리 및 조정, 높은 퀄리티의 작업 완료 보장",
+            backstory="당신은 경험많은 프로젝트 매니저, 전체 문제를 보는데 뛰어난 능력을 가지고 있습니다. 당신은 프로젝트 매니저로서 프로젝트 전체를 책임지는 존재입니다.",
+            allow_delegation=True
+        )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -60,7 +68,8 @@ class ResearchCrew():
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
-            process=Process.sequential,
+            process=Process.hierarchical,
+            manager_agent=self.manager(),
             verbose=True,
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
